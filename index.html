@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>HexaShield — Centro de Operações de Segurança</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="splash">
+    <div class="splash-drip"></div>
+    <div class="splash-inner">
+      <svg class="splash-sigil" viewBox="0 0 110 110" fill="none">
+        <polygon points="55,4 100,28.5 100,81.5 55,106 10,81.5 10,28.5" stroke="#8b0000" stroke-width="1"
+          fill="rgba(139,0,0,0.06)" />
+        <polygon points="55,14 92,34.5 92,75.5 55,96 18,75.5 18,34.5" stroke="#b8960c" stroke-width="0.6"
+          stroke-dasharray="3 5" fill="none" opacity="0.5" />
+        <path d="M55 24L32 33v16c0 13 9.5 24 23 27 13.5-3 23-14 23-27V33L55 24z" stroke="#8b0000" stroke-width="1.2"
+          fill="rgba(139,0,0,0.1)" />
+        <path d="M55 24L32 33v16c0 13 9.5 24 23 27 13.5-3 23-14 23-27V33L55 24z" stroke="#b8960c" stroke-width="0.4"
+          stroke-dasharray="2 4" fill="none" />
+        <path d="M45 55l7 7 13-14" stroke="#c0152a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <text x="6" y="12" fill="#b8960c" font-size="7" font-family="serif" opacity="0.6">✦</text>
+        <text x="98" y="12" fill="#b8960c" font-size="7" font-family="serif" opacity="0.6">✦</text>
+        <text x="6" y="108" fill="#b8960c" font-size="7" font-family="serif" opacity="0.6">✦</text>
+        <text x="98" y="108" fill="#b8960c" font-size="7" font-family="serif" opacity="0.6">✦</text>
+        <circle cx="55" cy="55" r="48" stroke="rgba(192,21,42,0.15)" stroke-width="0.5">
+          <animate attributeName="r" values="48;52;48" dur="3s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+      <div class="splash-title">HexaShield</div>
+      <div class="splash-subtitle">Centro de Operações de Segurança</div>
+      <div class="splash-divider"></div>
+      <div class="splash-author-label">Desenvolvido por</div>
+      <div class="splash-author">Fernanda Duarte</div>
+      <div class="splash-role">Analista de Cibersegurança &amp; Desenvolvedora</div>
+      <button class="splash-enter" onclick="enterDashboard()">Entrar na Vigília</button>
+    </div>
+    <button class="splash-skip" onclick="enterDashboard()">pular intro ›</button>
+  </div>
+
+  <div class="wrapper">
+
+
+    <header>
+      <div class="header-ornament">
+        <svg viewBox="0 0 320 24" fill="none" style="width:min(320px,100%);height:20px;opacity:0.5">
+          <line x1="0" y1="12" x2="130" y2="12" stroke="#b8960c" stroke-width="0.5" />
+          <polygon points="140,12 146,6 152,12 146,18" stroke="#b8960c" stroke-width="0.8"
+            fill="rgba(184,150,12,0.1)" />
+          <rect x="155" y="8" width="10" height="8" stroke="#8b0000" stroke-width="0.8" fill="none" />
+          <polygon points="168,12 174,6 180,12 174,18" stroke="#b8960c" stroke-width="0.8"
+            fill="rgba(184,150,12,0.1)" />
+          <line x1="190" y1="12" x2="320" y2="12" stroke="#b8960c" stroke-width="0.5" />
+        </svg>
+      </div>
+      <div class="header-inner">
+        <div class="logo">
+          <svg viewBox="0 0 44 44" fill="none" style="width:40px;height:40px;flex-shrink:0">
+            <path d="M22 2L6 9v12c0 10 7 18.5 16 21 9-2.5 16-11 16-21V9L22 2z" stroke="#8b0000" stroke-width="1.2"
+              fill="rgba(139,0,0,0.08)" />
+            <path d="M22 2L6 9v12c0 10 7 18.5 16 21 9-2.5 16-11 16-21V9L22 2z" stroke="#b8960c" stroke-width="0.4"
+              stroke-dasharray="2 4" fill="none" />
+            <path d="M15 22l5 5 9-10" stroke="#c0152a" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <div>
+            <div class="logo-text">HexaShield</div>
+            <div class="logo-subtitle">Centro de Operações de Segurança</div>
+          </div>
+        </div>
+        <div class="header-controls">
+          <button class="icon-btn muted" id="sound-btn" onclick="toggleSound()"
+            title="Alternar alertas sonoros">🔕</button>
+          <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+          <div class="header-right-col">
+            <div class="live-indicator">
+              <div class="pulse-rune"></div>Vigília Ativa
+            </div>
+            <div class="header-clock" id="clock">--:--:-- UTC</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <div class="alert-banner" id="alert-banner">
+      <span class="alert-seal">⚔ Ameaça</span>
+      <span class="alert-text" id="alert-text">Tentativa de força bruta detectada no SSH — <strong>192.168.3.47</strong>
+        — 312 falhas de autenticação em 60s — contenção FortiGate ativada.</span>
+    </div>
+
+
+    <div class="stats-row">
+      <div class="stat-card s-crimson">
+        <div class="stat-label">Ameaças Ativas</div>
+        <div class="stat-value" id="stat-threats">7</div>
+        <div class="stat-sub" id="stat-threats-sub">↑ <em>3</em> nos últimos 15 min</div>
+      </div>
+      <div class="stat-card s-gold">
+        <div class="stat-label">Pacotes Analisados</div>
+        <div class="stat-value" id="stat-packets">84.2K</div>
+        <div class="stat-sub">Desde <em>meia-noite UTC</em></div>
+      </div>
+      <div class="stat-card s-ghost">
+        <div class="stat-label">Uptime do Firewall</div>
+        <div class="stat-value">99.9<span style="font-size:16px;font-weight:400">%</span></div>
+        <div class="stat-sub">FortiGate &amp; pfSense <em>ativos</em></div>
+      </div>
+      <div class="stat-card s-smoke">
+        <div class="stat-label">Túneis VPN</div>
+        <div class="stat-value" id="stat-vpn">12</div>
+        <div class="stat-sub" id="stat-vpn-sub"><em>11</em> ativos · 1 instável</div>
+      </div>
+    </div>
+
+    <div class="panel map-panel">
+      <div class="panel-header">
+        <span class="panel-title">Cartografia Global de Ameaças</span>
+        <span class="panel-rune rune-red" id="map-attack-count">Ao vivo · 0 vetores</span>
+      </div>
+      <div class="map-container"><canvas id="worldMap"></canvas></div>
+      <div class="map-legend">
+        <div class="map-legend-item">
+          <div class="map-dot" style="background:#e8303a;box-shadow:0 0 4px #e8303a"></div>Crítico
+        </div>
+        <div class="map-legend-item">
+          <div class="map-dot" style="background:#c8780a"></div>Alto
+        </div>
+        <div class="map-legend-item">
+          <div class="map-dot" style="background:#7a6a7a"></div>Médio / Baixo
+        </div>
+        <span style="margin-left:auto;font-size:9px;color:var(--text-muted);">Ponto dourado = seu servidor</span>
+      </div>
+    </div>
+
+
+    <div class="main-grid">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Crônica de Tráfego</span>
+          <span class="panel-rune rune-ghost">Ao vivo · 5s</span>
+        </div>
+        <div class="chart-area">
+          <canvas id="trafficChart"></canvas>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-sigil" style="background:#8b0000"></div>Entrada
+            </div>
+            <div class="legend-item">
+              <div class="legend-sigil" style="background:#c0152a"></div>Bloqueado
+            </div>
+            <div class="legend-item">
+              <div class="legend-sigil" style="background:#b8960c"></div>Saída
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Registro de Ameaças</span>
+          <div class="panel-actions">
+            <button class="btn-add" onclick="sndClick();openModal('threat')">
+              <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                <line x1="5" y1="1" x2="5" y2="9" stroke="currentColor" stroke-width="1.5" />
+                <line x1="1" y1="5" x2="9" y2="5" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+              Registrar
+            </button>
+          </div>
+        </div>
+        <div class="search-bar">
+          <input class="search-input" id="threat-search" placeholder="Buscar ameaças, IPs…" oninput="applyFilter()">
+          <div class="filter-btns">
+            <button class="filter-btn f-all active" data-filter="all"
+              onclick="sndClick();setFilter('all')">Todos</button>
+            <button class="filter-btn f-critical" data-filter="critical"
+              onclick="sndClick();setFilter('critical')">Crit</button>
+            <button class="filter-btn f-high" data-filter="high" onclick="sndClick();setFilter('high')">Alto</button>
+            <button class="filter-btn f-medium" data-filter="medium"
+              onclick="sndClick();setFilter('medium')">Méd</button>
+            <button class="filter-btn f-low" data-filter="low" onclick="sndClick();setFilter('low')">Baixo</button>
+          </div>
+        </div>
+        <div class="threat-scroll" id="threat-list"></div>
+      </div>
+    </div>
+
+    <div class="bottom-grid">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Origens dos Ataques</span>
+          <span class="panel-rune rune-red">Cartografia</span>
+        </div>
+        <div id="origins-list"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Regras do Firewall</span>
+          <button class="btn-add" onclick="sndClick();openModal('rule')">
+            <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+              <line x1="5" y1="1" x2="5" y2="9" stroke="currentColor" stroke-width="1.5" />
+              <line x1="1" y1="5" x2="9" y2="5" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            Decretar
+          </button>
+        </div>
+        <div id="rules-list"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Túneis VPN</span>
+          <button class="btn-add" onclick="sndClick();openModal('vpn')">
+            <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+              <line x1="5" y1="1" x2="5" y2="9" stroke="currentColor" stroke-width="1.5" />
+              <line x1="1" y1="5" x2="9" y2="5" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            Vincular
+          </button>
+        </div>
+        <div id="vpn-list"></div>
+      </div>
+    </div>
+
+
+    <footer class="page-footer">
+      <div class="footer-ornament">✦ &nbsp; HexaShield &nbsp; ✦</div>
+      <div class="footer-credit">Desenvolvido por <span>Fernanda Duarte</span> · Analista de Cibersegurança &amp;
+        Desenvolvedora Front-end</div>
+    </footer>
+
+  </div>
+
+
+  <div class="modal-overlay" id="modal-threat">
+    <div class="modal">
+      <div class="modal-header"><span class="modal-title">Registrar Ameaça</span><button class="modal-close"
+          onclick="sndClick();closeModal('threat')">✕</button></div>
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field"><label>Severidade</label><select id="t-sev">
+              <option value="critical">Crítico</option>
+              <option value="high">Alto</option>
+              <option value="medium" selected>Médio</option>
+              <option value="low">Baixo</option>
+            </select></div>
+          <div class="field"><label>IP / Host de Origem</label><input id="t-src" type="text" placeholder="192.168.0.1">
+          </div>
+        </div>
+        <div class="field"><label>Tipo de Ameaça</label><input id="t-type" type="text"
+            placeholder="ex: Injeção SQL, Varredura de Porta…"></div>
+      </div>
+      <div class="modal-footer"><button class="btn-cancel"
+          onclick="sndClick();closeModal('threat')">Cancelar</button><button class="btn-submit"
+          onclick="addThreat()">Registrar</button></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-rule">
+    <div class="modal">
+      <div class="modal-header"><span class="modal-title">Decretar Regra</span><button class="modal-close"
+          onclick="sndClick();closeModal('rule')">✕</button></div>
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field"><label>Ação</label><select id="r-action">
+              <option value="allow">Permitir</option>
+              <option value="deny">Negar</option>
+              <option value="block">Bloquear</option>
+            </select></div>
+          <div class="field"><label>Protocolo</label><input id="r-proto" type="text" placeholder="HTTPS, SSH…"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Descrição</label><input id="r-desc" type="text"
+              placeholder="Breve descrição da regra"></div>
+          <div class="field"><label>Porta</label><input id="r-port" type="text" placeholder="443"></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn-cancel"
+          onclick="sndClick();closeModal('rule')">Cancelar</button><button class="btn-submit"
+          onclick="addRule()">Decretar</button></div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-vpn">
+    <div class="modal">
+      <div class="modal-header"><span class="modal-title">Vincular Túnel VPN</span><button class="modal-close"
+          onclick="sndClick();closeModal('vpn')">✕</button></div>
+      <div class="modal-body">
+        <div class="field"><label>Nome do Túnel</label><input id="v-name" type="text"
+            placeholder="ex: SP-HQ ↔ RJ-Filial"></div>
+        <div class="field-row">
+          <div class="field"><label>Protocolo / Detalhe</label><input id="v-detail" type="text"
+              placeholder="IPSec / AES-256"></div>
+          <div class="field"><label>Status</label><select id="v-status">
+              <option value="up">Ativo</option>
+              <option value="warn">Instável</option>
+              <option value="down">Inativo</option>
+            </select></div>
+        </div>
+        <div class="field"><label>Uptime %</label><input id="v-uptime" type="text" placeholder="99.9"></div>
+      </div>
+      <div class="modal-footer"><button class="btn-cancel"
+          onclick="sndClick();closeModal('vpn')">Cancelar</button><button class="btn-submit"
+          onclick="addVPN()">Vincular</button></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
