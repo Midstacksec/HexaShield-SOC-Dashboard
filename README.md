@@ -127,7 +127,7 @@ Os dados exibidos no dashboard refletem cenários reais de cibersegurança com o
 Analista de Cibersegurança & Desenvolvedora Front-end  
 Florianópolis — SC, Brasil
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/fernanda-duarte-8883903a7)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fernanda-amorim-duarte-8883903a7/)
 [![Email](https://img.shields.io/badge/Email-c0152a?style=for-the-badge&logo=gmail&logoColor=white)](mailto:fdservicosdigitais@gmail.com)
 
 ---
