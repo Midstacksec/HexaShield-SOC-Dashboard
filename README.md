@@ -101,5 +101,5 @@ Florianópolis — SC, Brasil
 ---
 
 <div align="center">
-  <sub>Desenvolvido com 🖤 por Fernanda Duarte</sub>
+  <sub>Desenvolvido por Fernanda Duarte</sub>
 </div>
