@@ -10,11 +10,10 @@
 
 ---
 
-## 📸 Visão Geral
 
 O **HexaShield** é um Security Operations Center (SOC) dashboard desenvolvido com HTML, CSS e JavaScript puro — sem frameworks, sem dependências externas. O projeto foi criado para demonstrar habilidades em desenvolvimento front-end combinadas com conhecimento técnico real em cibersegurança.
 
-### ✨ Funcionalidades
+
 
 | Feature | Descrição |
 |---|---|
@@ -31,7 +30,7 @@ O **HexaShield** é um Security Operations Center (SOC) dashboard desenvolvido c
 
 ---
 
-## 🚀 Como Usar
+## como você pode usar ?
 
 1. **Clone o repositório:**
    ```bash
@@ -56,7 +55,7 @@ O **HexaShield** é um Security Operations Center (SOC) dashboard desenvolvido c
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## o que eu utilizei?
 
 - **HTML5 Semântico** — estrutura acessível e bem organizada
 - **CSS3 Avançado** — variáveis CSS, animações keyframe, Grid, Flexbox, design responsivo
@@ -67,7 +66,7 @@ O **HexaShield** é um Security Operations Center (SOC) dashboard desenvolvido c
 
 ---
 
-## 🏗️ Estrutura do Projeto
+## estrutura do Projeto
 
 ```
 hexashield/
@@ -83,41 +82,10 @@ hexashield/
 
 ---
 
-## ⚠️ Origem dos Dados — Transparência Total
+## Qual a Origem dos Dados?
 
 > **Todos os dados exibidos no dashboard são 100% fictícios**, criados artificialmente para fins ilustrativos. Nenhuma informação foi coletada, extraída ou baseada em sistemas reais, empresas ou incidentes reais.
 
-| Dado | Origem |
-|---|---|
-| **IPs** como `192.168.x.x` e `10.0.x.x` | Faixas privadas RFC 1918 — reservadas, não existem na internet pública |
-| **IP** `203.0.113.x` | TEST-NET-3 (RFC 5737) — reservada exclusivamente para documentação técnica |
-| **Contagens de ataques por país** | Números inventados; os países aparecem por serem comuns em relatórios públicos como Akamai e Verizon DBIR |
-| **Nomes de túneis VPN** (SP-HQ, SC-Branch) | Abreviações fictícias de localidades brasileiras |
-| **Tipos de ameaça** (Brute Force, SQL Injection…) | Vetores reais e conhecidos, mas os eventos em si são simulados |
-| **Regras de firewall** e portas | Padrões universais IANA; refletem configurações reais que executei em FortiGate e pfSense |
-
-O projeto é **seguro para publicação pública**. Para uma explicação completa com contexto técnico, veja o arquivo [`HexaShield_Origem_dos_Dados.pdf`](./HexaShield_Origem_dos_Dados.pdf).
-
----
-
-## 🔐 Contexto Técnico
-
-Os dados exibidos no dashboard refletem cenários reais de cibersegurança com os quais trabalhei na prática:
-
-- **Firewalls**: FortiGate, pfSense, Palo Alto
-- **Protocolos monitorados**: SSH, HTTPS, DNS, ICMP, VPN (IPSec, SSL-VPN, IKEv2)
-- **Vetores de ataque simulados**: Brute Force, SYN Flood, DNS Amplification, SQL Injection, ARP Spoofing, Ransomware
-- **Ferramentas referenciadas**: Nagios, Cloudflare DNS, Active Directory, Jira, Asana
-
----
-
-## 💡 Decisões de Design
-
-- **Tipografia**: `Cinzel` (gótica serifada) + `Crimson Text` (corpo) + `JetBrains Mono` (dados técnicos)
-- **Paleta Dark**: Preto profundo (#040405) com crimson (#c0152a) e dourado envelhecido (#d4af37)
-- **Paleta Light**: Pergaminho (#f4f0ea) mantendo os vermelhos e dourados — consistência estética
-- **Sem purple gradients** — escolha deliberada contra o visual genérico de "AI dashboard"
-- **Acessibilidade**: contraste legível em ambos os temas, cursor pointer em elementos interativos
 
 ---
 
